@@ -25,12 +25,13 @@ while i < 5:
 	# combine the objects into a single boolean array
 	voxelarray = cube1 | cube2 | link
 	
-	list=['green','blue','yellow','red','purple']
+	biome=['green','blue','yellow','red','purple']
+	distrib=[.20,.20,.20,.20,.20]
 	# set the colors of each object
 	colors = np.empty(voxelarray.shape, dtype=object)
-	colors[link] = rd.choice(list)
-	colors[cube1] = rd.choice(list)
-	colors[cube2] = rd.choice(list)
+	colors[link] = rd.choices(biome,distrib)
+	colors[cube1] = rd.choices(biome,distrib)
+	colors[cube2] = rd.choices(biome,distrib)
 	
 	# and plot everything
 	ax = plt.figure().add_subplot(projection='3d')
